@@ -25,6 +25,25 @@ function displayWeatherData(response) {
   iconElement.innerHTML = `<img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconCode}.png" alt="${response.data.condition.description}" />`;
 }
 
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml += `
+        <div class="forecastDay">
+        <div class="weekday">${day}</div>
+        <div class="forecastIcon">🌤️</div>
+        <div class="forecastTemps">
+        <span class="hiTemp">16°</span> <span class="lowTemp">14°</span>
+        </div>
+      </div>
+      `;
+  });
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
+
 function search(city) {
   let apiKey = "21e8a41ecb5f3t140bf774eca0oae7aa";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
@@ -80,3 +99,4 @@ let currentDate = new Date();
 currentDateELement.innerHTML = formatDate(currentDate);
 
 window.addEventListener("load", initialize);
+displayForecast();

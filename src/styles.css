@@ -150,13 +150,38 @@ h1 {
   text-align: center;
 }
 
+.weekday {
+  text-align: center;
+  color: #3f4636;
+  font-size: 24px;
+  line-height: 28px;
+  margin-bottom: 12px;
+}
+
+.forecastIcon {
+  font-size: 44px;
+  text-align: center;
+}
+
+.forecastTemps {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
 .hiTemp {
   color: #932421;
+  padding: 12px;
+  font-size: 24px;
 }
 
 .lowTemp {
   color: #ed4d45;
   opacity: 0.6;
+  padding: 12px;
+  font-size: 24px;
 }
 
 footer {
