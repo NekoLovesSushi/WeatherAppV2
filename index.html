@@ -17,7 +17,7 @@
   <body>
     <div class="box">
       <header>
-        <form>
+        <form class="searchForm">
           <input
             type="search"
             placeholder="Enter a city.."
@@ -27,24 +27,27 @@
           <input type="submit" value="search" class="searchButton" />
         </form>
 
-        <h1>Happy Holidays ❄️</h1>
+        <h1>Happy Holidays!☃️</h1>
       </header>
 
       <main>
-        <div>
-          <h2 class="city">Montreal</h2>
-          <p>
-            <span id="date"></span>, <span id="description">broken clouds</span>
-            <br />
-            Humidity: <span id="humidity">82%</span>, Wind:
-            <span id="windSpeed">13.86 km/h</span>
-          </p>
-        </div>
+        <div class="weatherAppData">
+          <div class="leftSide">
+            <h2 class="city" id="city">Montreal</h2>
+            <p>
+              <span class="date" id="date"></span>,
+              <span class="description" id="description">broken clouds</span>
+              <br />
+              Humidity: <span class="humidity" id="humidity">82%</span>, Wind:
+              <span class="wind" id="windSpeed">13.86 km/h</span>
+            </p>
+          </div>
 
-        <div>
-          <span class="icon">☁</span>
-          <span class="temperature">1</span>
-          <span class="temperatureUnit">°C</span>
+          <div class="rightSide">
+            <span class="icon"> ☁ </span>
+            <span class="temperature"> 1 </span>
+            <span class="temperatureUnit"> °C </span>
+          </div>
         </div>
       </main>
 
@@ -53,11 +56,11 @@
         <a href="https://github.com/NekoLovesSushi" target="_blank"
           >Judith Eleanor Stein</a
         >
-        Available on
+        available on
         <a href="https://github.com/NekoLovesSushi/WeatherAppV2" target="_blank"
           >GitHub</a
         >
-        Hosting with
+        and hosting with
         <a href="https://holidayweatherapplication.netlify.app" target="_blank"
           >Netlify</a
         >
