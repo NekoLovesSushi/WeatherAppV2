@@ -23,22 +23,47 @@ function displayWeatherData(response) {
   // Update weather icon
   let iconCode = response.data.condition.icon;
   iconElement.innerHTML = `<img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconCode}.png" alt="${response.data.condition.description}" />`;
+
+  //Update Weather Forecast
+  getForecast(response.data.city);
 }
 
-function displayForecast() {
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+function getForecast(city) {
+  let apiKey = "21e8a41ecb5f3t140bf774eca0oae7aa";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+
+function displayForecast(response) {
   let forecastHtml = "";
 
-  days.forEach(function (day) {
-    forecastHtml += `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml += `
         <div class="forecastDay">
-        <div class="weekday">${day}</div>
-        <div class="forecastIcon">🌤️</div>
+        <div class="weekday">${formatDay(day.time)}</div>
+        <div class="forecastIcon">
+        <img src= "${day.condition.icon_url}"
+        />
+        </div>
         <div class="forecastTemps">
-        <span class="hiTemp">16°</span> <span class="lowTemp">14°</span>
+        <span class="hiTemp">${Math.round(
+          day.temperature.maximum
+        )}°</span> <span class="lowTemp">${Math.round(
+        day.temperature.minimum
+      )}°</span>
         </div>
       </div>
       `;
+    }
   });
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHtml;
@@ -56,11 +81,6 @@ function handleSearch(event) {
   let searchInputElement = document.querySelector("#searchInput");
   let city = searchInputElement.value;
   search(city);
-}
-
-function initialize() {
-  let defaultCity = "North Pole";
-  search(defaultCity);
 }
 
 function formatDate(date) {
@@ -90,6 +110,11 @@ function formatDate(date) {
   return `${formattedDay} ${hours}:${minutes}`;
 }
 
+function initialize() {
+  let defaultCity = "North Pole";
+  search(defaultCity);
+}
+
 let searchForm = document.querySelector("#searchForm");
 searchForm.addEventListener("submit", handleSearch);
 
@@ -99,4 +124,3 @@ let currentDate = new Date();
 currentDateELement.innerHTML = formatDate(currentDate);
 
 window.addEventListener("load", initialize);
-displayForecast();
