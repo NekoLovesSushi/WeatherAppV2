@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,12 +18,13 @@
   <body>
     <div class="box">
       <header>
-        <form class="searchForm">
+        <form class="searchForm" id="searchForm">
           <input
             type="search"
             placeholder="Enter a city.."
             required
             class="searchInput"
+            id="searchInput"
           />
           <input type="submit" value="search" class="searchButton" />
         </form>
@@ -39,14 +41,14 @@
               <span class="description" id="description">broken clouds</span>
               <br />
               Humidity: <span class="humidity" id="humidity">82%</span>, Wind:
-              <span class="wind" id="windSpeed">13.86 km/h</span>
+              <span class="windSpeed" id="windSpeed">13.86 km/h</span>
             </p>
           </div>
 
           <div class="rightSide">
-            <span class="icon"> ☁ </span>
-            <span class="temperature"> 1 </span>
-            <span class="temperatureUnit"> °C </span>
+            <span class="icon" id="icon"> ☁ </span>
+            <span class="temperature" id="temperature"> 1 </span>
+            <span class="temperatureUnit" id="temperatureUnit"> °C </span>
           </div>
         </div>
       </main>
