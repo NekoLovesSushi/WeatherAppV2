@@ -5,19 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/styles.css" />
-    <title>Weather Application v2</title>
+    <title>Holiday Weather Application</title>
   </head>
+
   <body>
-    <h1>Happy Holidays ❄️</h1>
+    <header>
+      <form>
+        <input type="search" placeholder="Enter a city.." required />
+        <input type="submit" value="search" />
+      </form>
+    </header>
+
+    <main>
+      <h1>Happy Holidays ❄️</h1>
+
+      <div>
+        <h2 class="city">Montreal</h2>
+        <p>
+          <span id="date"></span>, <span id="description">broken clouds</span>
+          <br />
+          Humidity: <span id="humidity">82%</span>, Wind:
+          <span id="windSpeed">13.86 km/h</span>
+        </p>
+      </div>
+
+      <div>
+        <span class="icon">☁</span>
+        <span class="temperature">13</span>
+        <span class="temperatureUnit">°C</span>
+      </div>
+    </main>
+
     <footer class="footer">
       This project was coded by
-      <a href="https://github.com/NekoLovesSushi">Judith Eleanor Stein</a>
-      <br />
+      <a href="https://github.com/NekoLovesSushi" target="_blank"
+        >Judith Eleanor Stein</a
+      >
       Available on
-      <a href="https://github.com/NekoLovesSushi/WeatherAppV2">GitHub</a>
-      <br />
+      <a href="https://github.com/NekoLovesSushi/WeatherAppV2" target="_blank"
+        >GitHub</a
+      >
       Hosting with
-      <a href="https://glittery-scone-29e4d4.netlify.app">Netlify</a>
+      <a href="https://holidayweatherapplication.netlify.app" target="_blank"
+        >Netlify</a
+      >
     </footer>
+
+    <script src="src/index.js"></script>
   </body>
 </html>
